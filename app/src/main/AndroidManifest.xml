@@ -2,10 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android4dev.navigationview" >
     <uses-permission  android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
 
         android:allowBackup="true"
-        android:icon="@drawable/party_icon"
+        android:icon="@drawable/noctua"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -22,6 +25,32 @@
             android:label="@string/app_name"
             android:parentActivityName=".MainActivity" >
         </activity>
+        <activity
+            android:name=".GaleriaActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".EventosActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".ReservasActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".EnvioReservasActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".ReservasActivity" >
+        </activity>
+        <activity
+            android:name=".ProductosActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+
     </application>
 
 </manifest>

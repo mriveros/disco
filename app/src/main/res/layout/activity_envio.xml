@@ -1,0 +1,151 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.magdroid.MainActivity" >
+    <TextView
+        android:id="@+id/LblPosLatitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:textColor="#0099CC"
+        android:text="Registrar Reservas"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textColor="#0099CC"
+        android:text="Nombre"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/LblPosLatitud"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
+    <EditText
+        android:id="@+id/txtNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0099CC"
+        android:textStyle="italic"
+        android:text="Telefono:"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/txtNombre"
+        android:layout_alignLeft="@+id/spMotivos"
+        android:layout_alignStart="@+id/spMotivos" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/TxtTelefono"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textColor="#0099CC"
+        android:text="Evento"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/TxtTelefono"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <Spinner
+        android:id="@+id/spMotivos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textColor="#0099CC"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignStart="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0099CC"
+        android:textStyle="italic"
+        android:text="Observación:"
+        android:layout_below="@+id/spMotivos"
+        android:layout_alignLeft="@+id/txtObs"
+        android:layout_alignStart="@+id/txtObs" />
+
+    <EditText
+        android:id="@+id/txtObs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/textView1"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5">
+    </EditText>
+
+
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/guardar_enviar"
+        android:onClick="enviarDatos"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Reserva!"
+        android:textStyle="italic"
+        android:textColor="#0099CC"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/imageButton1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Imagen"
+        android:textColor="#0099CC"
+        android:textStyle="italic"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/txtObs"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4" />
+
+    <Button
+        android:id="@+id/btnTomarFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/camera_icono"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true" />
+
+
+
+</RelativeLayout>
