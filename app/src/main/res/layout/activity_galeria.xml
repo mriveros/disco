@@ -18,7 +18,7 @@
     android:background="@color/PrimaryColor"
     android:text="Galeria de Imagenes"
     android:textSize="20sp"
-    android:textStyle="italic" />
+    android:textStyle="bold|italic" />
 
 <ListView
     android:id="@+id/listViewLista"
