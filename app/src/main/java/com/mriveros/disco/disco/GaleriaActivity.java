@@ -1,45 +1,46 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.view.View;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
+import com.mriveros.disco.R;
 
 
-public class ReservasActivity extends Activity {
+public class GaleriaActivity extends Activity {
 
 	private TextView mostrar;
 	private Button buscar;
 	private ListView listaa;
 	String searchTerm ;
-	String URL = "http://104.236.113.194/disco/RestServices/ReservasJson.php";
+	String URL = "http://104.236.113.194/disco/RestServices/GaleriaJson.php";
 	
 	Activity a;
 	Context context;
-	static ArrayList<Reservas> lista;
+	static ArrayList<Galerias> lista;
 	JSONArray pers;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reservas);
-        lista = new ArrayList<Reservas>();
+        setContentView(R.layout.activity_galeria);
+        lista = new ArrayList<Galerias>();
         a=this;
         context=getApplicationContext();
-        listaa = (ListView) findViewById(R.id.listViewListaReservas);
+        listaa = (ListView) findViewById(R.id.listViewLista);
+       // buscar = (Button) findViewById(R.id.busqueda);
 		new GetContacts(listaa).execute();
 
     	
@@ -54,7 +55,7 @@ public class ReservasActivity extends Activity {
 		@Override
 	        protected void onPreExecute() {
 	            super.onPreExecute();
-	            pDialog = new ProgressDialog(ReservasActivity.this);
+	            pDialog = new ProgressDialog(GaleriaActivity.this);
 	            pDialog.setMessage("Cargando Datos ...");
 	            pDialog.setIndeterminate(false);
 	            pDialog.setCancelable(true);
@@ -80,15 +81,21 @@ public class ReservasActivity extends Activity {
                     for (int i = 0; i < pers.length(); i++) {
                         JSONObject c = pers.getJSONObject(i);
                         
-                        String nombre = c.getString("res_nom");
-                        String evento = c.getString("eve_nom");
-                        String imagen = c.getString("res_imagen");
-
+                        String equipo = c.getString("img_cod");
+                        String name = c.getString("eve_nom");
+                        String especialidad = c.getString("img_obs");
+                        String imagen = c.getString("img_picture");
+                        //SUBITEM CON LAS HABILIDADES
+                        //JSONObject habilidades = c.getJSONObject("Habilidades");
+                        //String fuerza = habilidades.getString("Fuerza");
+                        //String espiritu = habilidades.getString("Espiritu");
+                        //String fortaleza = habilidades.getString("Fortaleza");
  
-                        Reservas e=new Reservas();
+                        Galerias e=new Galerias();
                         e.setURLimagen(imagen);
-						e.setNombre(nombre);
-						e.setEvento(evento);
+						e.setNombre(name);
+						e.setEquipo(equipo);
+						e.setProfesion(especialidad);
                         lista.add(e);
                     }
                 } catch (JSONException e) {
@@ -111,14 +118,14 @@ public class ReservasActivity extends Activity {
         	new CargarListTask().execute();
     }
 //HILO PARA CARGAR LOS DATOS EN EL LISTVIEW
-class CargarListTask extends AsyncTask<Void,String,AdapterReserva>{
+class CargarListTask extends AsyncTask<Void,String,AdapterGaleria>{
 	    @Override
 	    protected void onPreExecute() {
 	        // TODO Auto-generated method stub
 	        super.onPreExecute();
 	    }
 	  
-	    protected AdapterReserva doInBackground(Void... arg0) {
+	    protected AdapterGaleria doInBackground(Void... arg0) {
 	        // TODO Auto-generated method stub
 	  
 	        try{
@@ -127,25 +134,17 @@ class CargarListTask extends AsyncTask<Void,String,AdapterReserva>{
 	            ex.printStackTrace();
 	        }
 
-			AdapterReserva adaptador = new AdapterReserva(a,lista);
+			AdapterGaleria adaptador = new AdapterGaleria(a,lista);
 	        return adaptador;
 	    }
 	  
 	    @Override
-	    protected void onPostExecute(AdapterReserva result) {
+	    protected void onPostExecute(AdapterGaleria result) {
 	        // TODO Auto-generated method stub
 	        super.onPostExecute(result);
 	        listaa.setAdapter(result);
 
 	    }
 	}
-	}
-	//Controlador del boton para iniciar sesion
-	@SuppressWarnings("unchecked")
-	public void hacerReservas(View button){
-
-		Intent in = new Intent(ReservasActivity.this, EnvioReservasActivity.class);
-		startActivity(in);
-
 	}
 }

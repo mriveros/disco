@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

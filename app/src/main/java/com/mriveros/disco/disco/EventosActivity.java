@@ -1,44 +1,41 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
+import com.mriveros.disco.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 
-public class GaleriaActivity extends Activity {
+public class EventosActivity extends Activity {
 
-	private TextView mostrar;
-	private Button buscar;
+
 	private ListView listaa;
-	String searchTerm ;
-	String URL = "http://104.236.113.194/disco/RestServices/GaleriaJson.php";
+	String URL = "http://104.236.113.194/disco/RestServices/EventosJson.php";
 	
 	Activity a;
 	Context context;
-	static ArrayList<Galerias> lista;
+	static ArrayList<Eventos> lista;
 	JSONArray pers;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_galeria);
-        lista = new ArrayList<Galerias>();
+        setContentView(R.layout.activity_evento);
+        lista = new ArrayList<Eventos>();
         a=this;
         context=getApplicationContext();
-        listaa = (ListView) findViewById(R.id.listViewLista);
-       // buscar = (Button) findViewById(R.id.busqueda);
+        listaa = (ListView) findViewById(R.id.listViewListaEvento);
 		new GetContacts(listaa).execute();
 
     	
@@ -53,7 +50,7 @@ public class GaleriaActivity extends Activity {
 		@Override
 	        protected void onPreExecute() {
 	            super.onPreExecute();
-	            pDialog = new ProgressDialog(GaleriaActivity.this);
+	            pDialog = new ProgressDialog(EventosActivity.this);
 	            pDialog.setMessage("Cargando Datos ...");
 	            pDialog.setIndeterminate(false);
 	            pDialog.setCancelable(true);
@@ -79,21 +76,18 @@ public class GaleriaActivity extends Activity {
                     for (int i = 0; i < pers.length(); i++) {
                         JSONObject c = pers.getJSONObject(i);
                         
-                        String equipo = c.getString("img_cod");
-                        String name = c.getString("eve_nom");
-                        String especialidad = c.getString("img_obs");
-                        String imagen = c.getString("img_picture");
-                        //SUBITEM CON LAS HABILIDADES
-                        //JSONObject habilidades = c.getJSONObject("Habilidades");
-                        //String fuerza = habilidades.getString("Fuerza");
-                        //String espiritu = habilidades.getString("Espiritu");
-                        //String fortaleza = habilidades.getString("Fortaleza");
+                        String nombre = c.getString("eve_nom");
+                        String descripcion = c.getString("eve_des");
+                        String fecha = c.getString("eve_fecha");
+                        String imagen = c.getString("eve_imagen");
+
+
  
-                        Galerias e=new Galerias();
+                        Eventos e=new Eventos();
                         e.setURLimagen(imagen);
-						e.setNombre(name);
-						e.setEquipo(equipo);
-						e.setProfesion(especialidad);
+						e.setNombre(nombre);
+						e.setDescripicion(descripcion);
+						e.setFecha(fecha);
                         lista.add(e);
                     }
                 } catch (JSONException e) {
@@ -116,14 +110,14 @@ public class GaleriaActivity extends Activity {
         	new CargarListTask().execute();
     }
 //HILO PARA CARGAR LOS DATOS EN EL LISTVIEW
-class CargarListTask extends AsyncTask<Void,String,AdapterGaleria>{
+class CargarListTask extends AsyncTask<Void,String,AdapterEvento>{
 	    @Override
 	    protected void onPreExecute() {
 	        // TODO Auto-generated method stub
 	        super.onPreExecute();
 	    }
 	  
-	    protected AdapterGaleria doInBackground(Void... arg0) {
+	    protected AdapterEvento doInBackground(Void... arg0) {
 	        // TODO Auto-generated method stub
 	  
 	        try{
@@ -131,13 +125,13 @@ class CargarListTask extends AsyncTask<Void,String,AdapterGaleria>{
 	        }catch(Exception ex){
 	            ex.printStackTrace();
 	        }
-
-			AdapterGaleria adaptador = new AdapterGaleria(a,lista);
+	  
+	        AdapterEvento adaptador = new AdapterEvento(a,lista);
 	        return adaptador;
 	    }
 	  
 	    @Override
-	    protected void onPostExecute(AdapterGaleria result) {
+	    protected void onPostExecute(AdapterEvento result) {
 	        // TODO Auto-generated method stub
 	        super.onPostExecute(result);
 	        listaa.setAdapter(result);

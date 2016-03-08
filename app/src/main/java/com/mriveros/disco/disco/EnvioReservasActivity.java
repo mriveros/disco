@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -43,12 +43,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.widget.ImageView;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 
- @SuppressWarnings("deprecation")
+import com.mriveros.disco.R;
+
+@SuppressWarnings("deprecation")
 @SuppressLint("HandlerLeak")
 public class EnvioReservasActivity extends Activity {
 	 private final String ruta_fotos = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/DISCO/";

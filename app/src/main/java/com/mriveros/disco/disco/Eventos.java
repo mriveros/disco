@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 import android.graphics.Bitmap;
 

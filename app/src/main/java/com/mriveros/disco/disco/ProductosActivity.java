@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 
 import android.app.Activity;
@@ -8,6 +8,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+
+import com.mriveros.disco.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

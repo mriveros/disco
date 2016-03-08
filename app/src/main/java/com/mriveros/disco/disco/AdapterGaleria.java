@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -9,13 +9,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mriveros.disco.R;
 
 public class AdapterGaleria extends BaseAdapter{
 	  

@@ -1,39 +1,39 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 import android.graphics.Bitmap;
 
-public class Productos {
+public class Galerias {
 
 	private String nombre;
-	private String descripcion;
-	private String precio;
+	private String profesion;
+	private String equipo;
 	private String URLimagen;
 	public Bitmap imagen;
+	
 
 
-
-	public Productos() {
+	public Galerias() {
 		super();
 	}
 	
+	public String getEquipo() {
+		return equipo;
+	}
+	public void setEquipo(String equipo) {
+		this.equipo = equipo;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public String getDescripicion() {
-		return descripcion;
+	public String getProfesion() {
+		return profesion;
 	}
-	public void setDescripicion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	public String getPrecio() {
-		return precio;
-	}
-	public void setPrecio(String precio) {
-		this.precio= precio;
+	public void setProfesion(String profesion) {
+		this.profesion = profesion;
 	}
 	public String getURLimagen() {
 		return URLimagen;

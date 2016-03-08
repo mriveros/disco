@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.mriveros.disco.disco;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,18 +12,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mriveros.disco.R;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class AdapterReserva extends BaseAdapter{
+public class AdapterProducto extends BaseAdapter{
 
     protected Activity activity;
     //ARRAYLIST CON TODOS LOS ITEMS
-    protected ArrayList<Reservas> items;
+    protected ArrayList<Productos> items;
 
     //CONSTRUCTOR
-    public AdapterReserva(Activity activity, ArrayList<Reservas> items) {
+    public AdapterProducto(Activity activity, ArrayList<Productos> items) {
         this.activity = activity;
         this.items = items;
       }
@@ -49,10 +51,10 @@ public class AdapterReserva extends BaseAdapter{
  
        if(convertView == null){
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inf.inflate(R.layout.list_item_reservas, null);
+            v = inf.inflate(R.layout.list_item_eventos, null);
         }
 
-        Reservas dir = items.get(position);
+        Productos dir = items.get(position);
         //RELLENAMOS LA IMAGEN Y EL TEXTO
         //IMAGEN
         ImageView img = (ImageView) v.findViewById(R.id.imageView1);
@@ -61,10 +63,11 @@ public class AdapterReserva extends BaseAdapter{
 		}
         //CAMPOS
         TextView nombre = (TextView) v.findViewById(R.id.username);
-        nombre.setText("Nombre : "+dir.getNombre());
+        nombre.setText("Producto : "+dir.getNombre());
         TextView clase = (TextView) v.findViewById(R.id.clase);
-        clase.setText("Evento : "+dir.getEvento());
-
+        clase.setText("Precio : "+dir.getPrecio());
+        TextView equipo = (TextView) v.findViewById(R.id.equipo);
+        equipo.setText("Obs : "+dir.getDescripicion());
 
         // DEVOLVEMOS VISTA
         return v;
