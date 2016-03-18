@@ -26,6 +26,7 @@ public class GaleriaActivity extends Activity {
 	private ListView listaa;
 	String searchTerm ;
 	String URL = "http://104.236.113.194/disco/RestServices/GaleriaJson.php";
+	String EVENTOSELECT;
 	
 	Activity a;
 	Context context;
@@ -40,7 +41,8 @@ public class GaleriaActivity extends Activity {
         a=this;
         context=getApplicationContext();
         listaa = (ListView) findViewById(R.id.listViewLista);
-       // buscar = (Button) findViewById(R.id.busqueda);
+		Bundle bundle = getIntent().getExtras();
+		EVENTOSELECT=bundle.getString("codigo");
 		new GetContacts(listaa).execute();
 
     	
@@ -80,23 +82,19 @@ public class GaleriaActivity extends Activity {
                     // looping through All Equipos
                     for (int i = 0; i < pers.length(); i++) {
                         JSONObject c = pers.getJSONObject(i);
-                        
-                        String equipo = c.getString("img_cod");
-                        String name = c.getString("eve_nom");
-                        String especialidad = c.getString("img_obs");
-                        String imagen = c.getString("img_picture");
-                        //SUBITEM CON LAS HABILIDADES
-                        //JSONObject habilidades = c.getJSONObject("Habilidades");
-                        //String fuerza = habilidades.getString("Fuerza");
-                        //String espiritu = habilidades.getString("Espiritu");
-                        //String fortaleza = habilidades.getString("Fortaleza");
- 
-                        Galerias e=new Galerias();
-                        e.setURLimagen(imagen);
-						e.setNombre(name);
-						e.setEquipo(equipo);
-						e.setProfesion(especialidad);
-                        lista.add(e);
+						if (c.getString("eve_nom").equals(EVENTOSELECT)) {
+
+							String name = c.getString("eve_nom");
+							String especialidad = c.getString("img_obs");
+							String imagen = c.getString("img_picture");
+
+
+							Galerias e = new Galerias();
+							e.setURLimagen(imagen);
+							e.setNombre(name);
+							e.setProfesion(especialidad);
+							lista.add(e);
+						}
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

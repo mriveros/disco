@@ -66,8 +66,8 @@ public class AdapterGaleria extends BaseAdapter{
         nombre.setText("EVENTO : "+dir.getNombre());
         TextView clase = (TextView) v.findViewById(R.id.clase);
         clase.setText("OBS : "+dir.getProfesion());
-        TextView equipo = (TextView) v.findViewById(R.id.equipo);
-        equipo.setText("Nro : "+dir.getEquipo());
+
+
 
         // DEVOLVEMOS VISTA
         return v;
