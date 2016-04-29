@@ -21,7 +21,7 @@ public class EventosActivity extends Activity {
 
 
 	private ListView listaa;
-	String URL = "http://104.236.113.194/disco/RestServices/EventosJson.php";
+	String URL = "http://dev.appwebpy.com/disco/RestServices/EventosJson.php";
 	
 	Activity a;
 	Context context;

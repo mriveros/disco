@@ -25,7 +25,7 @@ public class GaleriaActivity extends Activity {
 	private Button buscar;
 	private ListView listaa;
 	String searchTerm ;
-	String URL = "http://104.236.113.194/disco/RestServices/GaleriaJson.php";
+	String URL = "http://dev.appwebpy.com/disco/RestServices/GaleriaJson.php";
 	String EVENTOSELECT;
 	
 	Activity a;

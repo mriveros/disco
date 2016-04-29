@@ -28,7 +28,7 @@ public class ReservasActivity extends Activity {
 	private Button buscar;
 	private ListView listaa;
 	String searchTerm ;
-	String URL = "http://104.236.113.194/disco/RestServices/ReservasJson.php";
+	String URL = "http://dev.appwebpy.com/disco/RestServices/ReservasJson.php";
 	
 	Activity a;
 	Context context;

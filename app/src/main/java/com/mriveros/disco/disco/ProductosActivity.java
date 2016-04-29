@@ -22,7 +22,7 @@ public class ProductosActivity extends Activity {
 
 
 	private ListView listaa;
-	String URL = "http://104.236.113.194/disco/RestServices/ProductosJson.php";
+	String URL = "http://dev.appwebpy.com/disco/RestServices/ProductosJson.php";
 	
 	Activity a;
 	Context context;

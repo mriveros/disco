@@ -218,7 +218,7 @@ private class SendData extends AsyncTask {
 	    HttpClient httpclient = new DefaultHttpClient();
 	    //Utilizamos la HttpPost para enviar lso datos
 	    //A la url donde se encuentre nuestro archivo receptor
-	    HttpPost httppost = new HttpPost("http://104.236.113.194/disco/datareceptor.php");
+	    HttpPost httppost = new HttpPost("http://dev.appwebpy.com/disco/datareceptor.php");
 	    try {
 	    List<NameValuePair> postValues = new ArrayList<NameValuePair>(2);
 	    postValues.add(new BasicNameValuePair("evento", sMotivos.getSelectedItem().toString()));
@@ -300,7 +300,7 @@ private class SendData extends AsyncTask {
 	    byte[] buffer;
 	    int maxBufferSize = 1 * 1024 * 1024;
 	    String responseFromServer = "";
-	    String urlString = "http://104.236.113.194/disco/upload.php";
+	    String urlString = "http://dev.appwebpy.com/disco/upload.php";
 
 	    try {
 
@@ -400,7 +400,7 @@ private class SendData extends AsyncTask {
 
 		 @SuppressWarnings({"deprecation", "resource"})
 		 HttpClient httpclient = new DefaultHttpClient();
-		 String HTTP_RESTFUL = "http://104.236.113.194/disco/RestServices/EventosJson.php";
+		 String HTTP_RESTFUL = "http://dev.appwebpy.com/disco/RestServices/EventosJson.php";
 		 HttpPost httppost = new HttpPost(HTTP_RESTFUL);
 		 String strResultado = "NaN";
 		 try {
